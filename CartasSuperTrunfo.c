@@ -6,7 +6,9 @@
 
 int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
-  char state; char city[30]; int population; int points; double area;  double pib;
+  char state[5], city[30];
+  int population, points;
+  double area, pib;
 
   // Área para entrada de dados
   printf("Olá, vamos começar a preencher as cartas do Super Trunfo!\n");
@@ -16,19 +18,19 @@ int main() {
 
   printf("CARTA 1\n");
   printf("Estado: ");
-  scanf("%s", &state);
+  scanf("%s", state);
 
   printf("Cidade: ");
-  scanf("%s", &city);
+  scanf("%s", city);
 
   printf("População: ");
   scanf("%d", &population);
 
   printf("Área (km2): ");
-  scanf("%.2f", &area);
+  scanf("%lf", &area);
 
   printf("PIB: ");
-  scanf("%.2f", &pib);
+  scanf("%lf", &pib);
 
   printf("Quantidades de pontos turisticos: ");
   scanf("%d", &points);
@@ -42,8 +44,8 @@ int main() {
   printf("Código: A01\n");
   printf("Cidade: %s\n", city);
   printf("População: %d\n", population);
-  printf("Área: %f\n", area);
-  printf("PIB: %f\n", pib);
+  printf("Área: %.2f\n", area);
+  printf("PIB: %.2f\n", pib);
   printf("Pontos Turisticos: %d\n", points);
 
 return 0;
