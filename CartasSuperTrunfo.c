@@ -71,12 +71,12 @@ int main() {
   // COMPARAROES
 
   int comparePopu = population > populationB;
-  double compareArea = area > areaB;
-  double comparePib = pib > pibB;
-  float comparePoints = points > pointsB;
-  double compareDensityPop = densityPop < densityPopB;
-  double comparePibPerCapt = pibPerCapita > pibPerCapitaB;
-  float compareSuper = super > superB;
+  int compareArea = area > areaB;
+  int comparePib = pib > pibB;
+  int comparePoints = points > pointsB;
+  int compareDensityPop = densityPop < densityPopB;
+  int comparePibPerCapt = pibPerCapita > pibPerCapitaB;
+  int compareSuper = super > superB;
   
   // Área para exibição dos dados da cidade
 
@@ -110,12 +110,12 @@ int main() {
 
   printf("*** 1 = Carta 1 venceu | 0 = Carta 2 venceu ***\n\n");
   printf("Area: %d\n", comparePopu);
-  printf("Area: %d\n", (int)compareArea);
-  printf("PIB: %d\n",(int)comparePib);
+  printf("Area: %d\n", compareArea);
+  printf("PIB: %d\n",comparePib);
   printf("Pontos Turisticos: %d\n", comparePoints);
-  printf("Densidade Populacional: %d\n", (int)compareDensityPop);
-  printf("PIB Per Capita: %d\n", (int)comparePibPerCapt);
-  printf("SUPER PODER: %d\n", (int)compareSuper);
+  printf("Densidade Populacional: %d\n", compareDensityPop);
+  printf("PIB Per Capita: %d\n", comparePibPerCapt);
+  printf("SUPER PODER: %d\n", compareSuper);
   
 return 0;
 } 
