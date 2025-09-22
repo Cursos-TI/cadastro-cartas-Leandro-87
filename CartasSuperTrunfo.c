@@ -8,16 +8,18 @@ int main() {
   // Área para definição das variáveis para armazenar as propriedades das cidades
   char state[5], city[30], stateB[5], cityB[30];
   int population, points, populationB, pointsB;
-  double area, pib, areaB, pibB;
+  double area, pib, areaB, pibB, densityPop, densityPopB, pibPerCapita, pibPerCapitaB;
+  float super, superB;
 
   // Área para entrada de dados
-  printf("Olá, vamos começar a preencher as cartas do Super Trunfo!\n");
+  printf("*** Olá, vamos começar a preencher as cartas do Super Trunfo! ***\n");
   printf("Preencha os campos da sua cidade.\n\n");
 
   //CADASTRO DA CARTA 1
 
   printf("CARTA 1\n");
-  printf("Estado: ");
+  
+  printf("Estado(sigla): ");
   scanf("%s", state);
 
   printf("Cidade: ");
@@ -34,10 +36,11 @@ int main() {
 
   printf("Quantidades de pontos turisticos: ");
   scanf("%d", &points);
-
+  
   //CADASTRO DA CARTA 2
 
-  printf("CARTA 2\n");
+  printf("\nCARTA 2\n");
+
   printf("Estado: ");
   scanf("%s", stateB);
 
@@ -56,10 +59,29 @@ int main() {
   printf("Quantidades de pontos turisticos: ");
   scanf("%d", &pointsB);
 
+  // CALCULOS PARA DENSIDADE POPULACIONAL, RENDA PER CAPITA E SUPER PODER
+
+  densityPop = population / area;
+  densityPopB = populationB / areaB;
+  pibPerCapita = pib / population;
+  pibPerCapitaB = pibB / populationB;
+  super = (population + area + pib + points + (1 / densityPop)) / 1000000; // ACHEI MAIS INTERESSANTE FAZER UM NUMERO NAO TAO EXPRESSIVO
+  superB = (populationB + areaB + pibB + pointsB + (1 / densityPopB)) / 1000000; // ACHEI MAIS INTERESSANTE FAZER UM NUMERO NAO TAO EXPRESSIVO
+
+  // COMPARAROES
+
+  int comparePopu = population > populationB;
+  double compareArea = area > areaB;
+  double comparePib = pib > pibB;
+  float comparePoints = points > pointsB;
+  double compareDensityPop = densityPop < densityPopB;
+  double comparePibPerCapt = pibPerCapita > pibPerCapitaB;
+  float compareSuper = super > superB;
+  
   // Área para exibição dos dados da cidade
 
   // EXIBI CARTA 1
-  printf("\nCARTA 1\n");
+  printf("\n\nCARTA 1\n");
   printf("Estado: %s\n", state);
   printf("Código: A01\n");
   printf("Cidade: %s\n", city);
@@ -67,7 +89,10 @@ int main() {
   printf("Área: %.2f\n", area);
   printf("PIB: %.2f\n", pib);
   printf("Pontos Turisticos: %d\n", points);
-
+  printf("Densidade Populacional: %.2f\n", densityPop);
+  printf("PIB Per Capita: %.2f\n", pibPerCapita);
+  printf("SUPER: %d\n", (int)super);
+  
   // EXIBI CARTA 2
   printf("\n\nCARTA 2\n");
   printf("Estado: %s\n", stateB);
@@ -77,6 +102,20 @@ int main() {
   printf("Área: %.2f\n", areaB);
   printf("PIB: %.2f\n", pibB);
   printf("Pontos Turisticos: %d\n", pointsB);
+  printf("Densidade Populacional: %.2f\n", densityPopB);
+  printf("PIB Per Capita: %.2f\n", pibPerCapitaB);
+  printf("SUPER: %d\n\n", (int)superB);
 
+  // RESULTADO DAS COMPARACOES
+
+  printf("*** 1 = Carta 1 venceu | 0 = Carta 2 venceu ***\n\n");
+  printf("Area: %d\n", comparePopu);
+  printf("Area: %d\n", (int)compareArea);
+  printf("PIB: %d\n",(int)comparePib);
+  printf("Pontos Turisticos: %d\n", comparePoints);
+  printf("Densidade Populacional: %d\n", (int)compareDensityPop);
+  printf("PIB Per Capita: %d\n", (int)comparePibPerCapt);
+  printf("SUPER PODER: %d\n", (int)compareSuper);
+  
 return 0;
 } 
